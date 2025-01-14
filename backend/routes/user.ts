@@ -90,7 +90,6 @@ userRouter.post('/signin', async (c) => {
     c.status(500);
     return c.json({ error: 'DATABASE_URL is not defined' });
   }
-  console.log(`line number 93 ${inputdata}`);
   const {success,data} = signinInput.safeParse(inputdata);
   if(!success)
   {
@@ -120,7 +119,6 @@ userRouter.post('/signin', async (c) => {
   }, c.env.JWT_KEY);
 
   c.set('userId', userexist.id);
-console.log(`The getted if from the c.set if ${c.get('userId')}`);
   c.status(200);
   return c.json({ msg: "Successfully Signed you in", token: jwt });
 });

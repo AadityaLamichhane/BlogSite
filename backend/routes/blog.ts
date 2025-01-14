@@ -111,7 +111,7 @@ blogRouter.get('/bulk',async(c)=>{
       authorId: e.authorId,
       content: e.content,
       title: e.title,
-      authorname: e.author.name ?? undefined
+      authorname: e.author.name || "Anonymous"
       };
 
      })
@@ -183,7 +183,7 @@ blogRouter.get('/',async(c)=>{
     } 
   
   try{
-    console.log("This is executed ");
+
     const blogsArray = await prisma.blog.findMany({
       include:{
         author:{
@@ -197,14 +197,14 @@ blogRouter.get('/',async(c)=>{
             authorId:id
         }
     });
- console.log('199');
+
     const validoutput:GetELementType[] = blogsArray.map((e)=>{
       return {
       id: e.id,
       authorId: e.authorId,
       content: e.content,
       title: e.title,
-      authorname: e.author.name ?? undefined
+      authorname: e.author.name ||"Anonymous"
       };});
 
     if(!blogsArray)
