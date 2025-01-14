@@ -20,6 +20,7 @@ export const FormCard = ({ type }: { type: "Signup" | "Signin" }) => {
     if(error)
     {
         return (<>
+        Error was detected /Todo For error Handling 
         
         <div className=' h-screen flex justify-center'>
             <div className = " h-screen flex flex-col justify-center">
