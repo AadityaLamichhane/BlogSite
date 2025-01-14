@@ -4,7 +4,7 @@ import { InputButton } from "./InputButton.tsx";
 import { currentenvstate } from './InputButton.tsx';
 import axios from 'axios';
 import { Backend_Url } from '../config.tsx';
-import {  useNavigate  } from 'react-router-dom';
+import {  Link, useNavigate  } from 'react-router-dom';
 
 
 
@@ -16,6 +16,27 @@ export const FormCard = ({ type }: { type: "Signup" | "Signin" }) => {
         name: ""
     });
     const [loading , setLoading ] = useState(false);
+    const [error , setError] = useState(false);
+    if(error)
+    {
+        return (<>
+        
+        <div className=' h-screen flex justify-center'>
+            <div className = " h-screen flex flex-col justify-center">
+                <div className="rounded-full bg-green-500 p-4 m-2 font-bold text-white">
+                     <Link to='/signin' onClick={() => window.location.reload()}>Sign In</Link>
+                </div>
+                <div className=' rounded-full bg-blue-500 p-4 m-2 font-bold text-white'>
+                   <Link to='/'>Create Account</Link> 
+                </div>
+            </div>
+            
+            </div>
+            
+         
+          
+        </>)
+    }
     if(loading)
     {
         return (
@@ -35,6 +56,12 @@ export const FormCard = ({ type }: { type: "Signup" | "Signin" }) => {
     const clickhandler = async () => {
         try {
             setLoading(true);
+            if( inputitems.username== ""||inputitems.password==""  )
+            {
+                setLoading(false);
+                return alert("Field is empty")
+
+            }
             const response = await axios.post(`${Backend_Url}/api/v1/user/${type === 'Signin' ? 'signin' : 'signup'}`, JSON.stringify(inputitems), {
                 headers: {
                     'Content-Type': 'application/json'
@@ -54,7 +81,9 @@ export const FormCard = ({ type }: { type: "Signup" | "Signin" }) => {
             // Navigating the routes according to the type
             (type === 'Signin')? navigate("/blog/") :  navigate("/signin");
         } catch (error) {
+            
             console.error("An error occurred during the request:", error);
+            setError(true);
         }
     };
 
