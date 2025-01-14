@@ -27,7 +27,7 @@ export const FormCard = ({ type }: { type: "Signup" | "Signin" }) => {
                      <Link to='/signin' onClick={() => window.location.reload()}>Sign In</Link>
                 </div>
                 <div className=' rounded-full bg-blue-500 p-4 m-2 font-bold text-white'>
-                   <Link to='/'>Create Account</Link> 
+                   <Link to='/'  onClick={() => window.location.reload()} >Create Account</Link> 
                 </div>
             </div>
             
