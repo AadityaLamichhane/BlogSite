@@ -4,13 +4,13 @@ export function Quote() {
             <div className="flex justify-center">
                 <div>
                 <div className="font-bold text-lg">
-                    "The customer service that I received was exceptional. The support team went beyond to address my concern."
+                    "Blogging transforms thoughts into impact, connecting ideas with the world and turning passions into meaningful conversations."
                 </div>
-                <div className="font-bold text-sm">
-                    Author Name
+                <div className="font-bold text-sm mt-4">
+                   Aaditya lamichhane
                 </div>
                 <div className='text-sm italic text-slate-600'>
-                    CEO, Frontend
+                    3rd Sem ko keta:)
                 </div>
 
                 </div>
