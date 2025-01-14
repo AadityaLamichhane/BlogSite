@@ -1,1 +1,1 @@
-export const Backend_Url ="http://localhost:8787"
+export const Backend_Url ="https://backend.lamichhaneaaditya01.workers.dev"

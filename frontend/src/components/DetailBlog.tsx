@@ -21,9 +21,9 @@ export const  DetailBlog=function(randomvariable:Cardelement)
                     <div className=' text-gray-500 text-sm flex justify-center items-center '>Dec 28 , 2023</div>
                 </div>
                 <div>
-                    <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 text-start ">{randomvariable.title}... </h5>
+                    <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 text-start ">{randomvariable.title} </h5>
                 </div>
-                <p className="mb-3 font-normal text-gray-700 text-start text-2xl">{randomvariable.content}...</p>
+                <p className="mb-3 font-normal text-gray-700 text-start text-2xl">{randomvariable.content}</p>
               
             </div>
 
