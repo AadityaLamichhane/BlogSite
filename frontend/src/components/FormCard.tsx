@@ -52,7 +52,7 @@ export const FormCard = ({ type }: { type: "Signup" | "Signin" }) => {
                 localStorage.setItem("token", data.token);
             }
             // Navigating the routes according to the type
-            (type === 'Signin')? navigate("/blog/") : window.location.href = 'http://localhost:5173/signin'
+            (type === 'Signin')? navigate("/blog/") :  navigate("/signin");
         } catch (error) {
             console.error("An error occurred during the request:", error);
         }
@@ -87,17 +87,17 @@ export const FormCard = ({ type }: { type: "Signup" | "Signin" }) => {
                     <div>
                         {type === 'Signin' ? "Create An Account" : "Already have an account"}
                     </div>
-                    <Links to={type === 'Signin' ? "Signup" : "Signin"} />
+                    <Links  navigate = {navigate }to={type === 'Signin' ? "Signup" : "Signin"} />
                 </div>
             </div>
         </div>
     );
 };
 
-function Links({ to }: { to: string }) {
+function Links({ to , navigate}: { to: string , navigate:any }) {
     const lower: string = to.toLowerCase();
     return (
-        <div onClick={() => window.location.href = `http://localhost:5173/${lower}`} className="underline underline-offset-1 hover:cursor-pointer focus:text-gray-300">
+        <div onClick={() => navigate(`/${lower}`)} className="underline underline-offset-1 hover:cursor-pointer focus:text-gray-300">
             {to}
         </div>
     );

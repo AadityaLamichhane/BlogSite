@@ -24,7 +24,7 @@ export const BlogDetail = ()=>{
                  title={blogs.title}
                  content={blogs.content}>
                 
-                </DetailBlog></>:<></>}
+        </DetailBlog></>:<></>}
           
 
 
