@@ -37,16 +37,17 @@ blogRouter.post('/', async (c) => {
         c.status(401);
         return c.json({msg:"Unexpected input for the blog"});
     }
+    // this is hardcoded 
     const jwttoken = data.userId;
-  
     if(!jwttoken)
     {
       c.json({msg:"Json Wb token"})
       return c.json({msg:"Worng input"})
     }
-    let id:any = null
-    const idnum = await verify(jwttoken,c.env.JWT_KEY);
-    id  = idnum.id;
+    
+
+    const verification = await verify(jwttoken, c.env.JWT_KEY) as { id: number };
+    const id: number = verification.id;
 
     try{
      // Chekcing if the user with id exist or not 
@@ -89,7 +90,6 @@ blogRouter.post('/', async (c) => {
  
 });
 blogRouter.get('/bulk',async(c)=>{
-
   const databaseUrl = c.env.DATABASE_URL;
   const prisma =new PrismaClient({
     datasourceUrl:databaseUrl
@@ -97,10 +97,13 @@ blogRouter.get('/bulk',async(c)=>{
   
   try{  
     //  Find the name of the person 
+    
      const blogData = await prisma.blog.findMany({
       include:{
         author:{
-          select:{name:true}
+          select:{
+            name:true
+          }
         }
       }
       });
@@ -121,8 +124,8 @@ blogRouter.get('/bulk',async(c)=>{
   }
   catch(err)  
   {
-  c.status(400);
-  return c.json({msg:"Error on Getting the data"})
+    c.status(400);
+    return c.json({msg:"Error on Getting the data"})
   }
 
 

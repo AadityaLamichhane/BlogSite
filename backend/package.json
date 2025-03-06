@@ -5,13 +5,13 @@
     "deploy": "wrangler deploy --minify"
   },
   "dependencies": {
-    "@prisma/client": "^6.1.0",
-    "@prisma/extension-accelerate": "^1.2.1",
+    "@prisma/client": "^6.4.1",
+    "@prisma/extension-accelerate": "^1.2.2",
     "aaditya-npm-packeges-testing": "^1.0.13",
     "axios": "^1.7.9",
     "hono": "^4.6.15",
     "link": "^2.1.1",
-    "prisma": "^6.1.0",
+    "prisma": "^6.4.1",
     "zod": "^3.24.1"
   },
   "devDependencies": {

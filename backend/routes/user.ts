@@ -21,7 +21,6 @@ userRouter.use('*', cors());
 
 userRouter.post('/signup', async (c) => {
   const body = await c.req.json();
-
   const databaseUrl = c.env.DATABASE_URL;
   if (!databaseUrl) {
     c.status(500);
@@ -32,33 +31,29 @@ userRouter.post('/signup', async (c) => {
     datasourceUrl: databaseUrl,
   }).$extends(withAccelerate());
 
-  try {
-    const { success, data } = signupInput.safeParse({
-      username: body.username,
-      password: body.password,
-      name: body.name
-    });
-    if (!success) {
-      c.status(405);
-      return c.json({ msg: "Failed Authentication" });
-    }
-  } catch (err) {
-    c.status(400);
-    return c.json({ msg: "Failed While doing authentication" });
+  const { success, data } = signupInput.safeParse({
+    username: body.username,
+    password: body.password,
+    name: body.name
+  });
+
+  if (!success) {
+    c.status(405);
+    return c.json({ msg: "Failed Authentication" });
   }
 
   try {
     // Checking the previous data
     const pastUser = await prisma.user.findFirst({
       where: {
-        username: body.username
+        username: data.username
       }
     });
     if (pastUser) {
       c.status(403);
       return c.json({ msg: "Already user exist with same credentials" });
     }
-
+    
     const user = await prisma.user.create({
       // Every user when logged in will be provided the id in the user variable that is unique
       // Checking for the authentication for the user
@@ -79,7 +74,7 @@ userRouter.post('/signup', async (c) => {
   } catch (e) {
     c.status(404);
     c.json({ error: e });
-    return c.text("Something went wrong while storing the data");
+    return c.text("Catched during the error in the process ");
   }
 });
 
