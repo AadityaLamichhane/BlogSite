@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 export const Navigationbar = ()=>{
     return (
         <>
-          <div className="border-b-2 p-1">
+          <div className="border-b-2 p-1 w-full h-full overflow-hidden">
                 <div className="flex justify-between">
                     <NavLink to='/signin' onClick={()=>localStorage.removeItem('token')}>Log out</NavLink>
                     <div className="flex items-center">

@@ -14,16 +14,16 @@ export const BlogCard = ()=>{
         if(loading)
         {
             return (<>
-            ...Loading this is rendering
+            ...Loading
             </>)
         }
     return (
 
         <>
   
-     <div className='flex  justify-center mt-2'>
-        <div className='flex flex-col justify-center'>
-       {
+    
+            
+            {
        blogs.map((e:Cardelement)=>{
         return (<>
         <Blogcrd 
@@ -35,9 +35,16 @@ export const BlogCard = ()=>{
         />
         </>)
        })
+    // <Blogcrd 
+    //       id={1}
+    //       authorId={2}
+    //       authorname={ "Anonymous"}
+    //       title={"dkjhsdjhskdhsdkjhskdshkdjshkdjhskdhkjsdhshdkjshdkhskdhdkjshdkjshdkshdkj"}
+    //       content={"dkjshdjhsdjsgdshjdgsjhdgshjdghjsgdjhsgdjhsgdhjsgdjhgsdhjgsjhdgsjhdgsjhdgsjdgjsdgsjhdgjshdgjshgdhjsgdjhsghd"}
+    //     />
   }
-        </div>
-     </div>
+       
+
         </>
     ) 
 }

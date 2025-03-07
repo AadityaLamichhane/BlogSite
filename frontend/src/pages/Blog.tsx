@@ -3,22 +3,19 @@ import { BlogCard } from "../components/BlogCard"
 import { Navigationbar } from "../components/Navigationbar"
 export const Blog = ()=>
 {
-    // const [loading , setLoading ] = useState<Boolean>();
-
-    // if (loading){
-    //     return (
-    //         <>
-    //         ...Loading
-    //         </>
-    //     )
-    // }
 
  
     return (
-        <div>
-            <Navigationbar/>     
-              <BlogCard/>
+        <>
+        <div className="grid grid-cols-1 w-full max-w-7xl mx-auto gap-4 p-4">
+            <div>
+                <Navigationbar/>
+            </div>
+            <div>
+                <BlogCard/>
+            </div>
         </div>
+                 </>
    
     )
 }

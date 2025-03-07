@@ -1,4 +1,5 @@
-import {Link} from 'react-router-dom' 
+
+
 interface Cardelement  {
     id:number,
     authorId:number,
@@ -7,31 +8,35 @@ interface Cardelement  {
     content:string
 }
 export const  Blogcrd=function(randomvariable:Cardelement)
+
 {
     return (
         <>
-         <div className="max-w-lg p-6 bg-white shadow border-gray-700">
-                <div className="flex ">
-                    <div className="relative inline-flex items-center justify-center w-8 h-8 ring-2 ring-gray-300 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                        <span className=" font-medium text-gray-600 dark:text-gray-300">{randomvariable.authorname[0]}</span>
-                    </div>
-                    <div className='font-semibold text-sm flex justify-center items-center mx-4'>
-                    {randomvariable.authorname}
-                    </div>
-                    <div className=' text-gray-500 text-sm flex justify-center items-center '>Dec 28 , 2023</div>
-                </div>
-                <div>
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-start ">{randomvariable.title.slice(0,100)}... </h5>
-                </div>
-                <p className="mb-3 font-normal text-gray-700 text-start">{randomvariable.content.slice(0,100)}...</p>
-                <Link to={`/blog/${randomvariable.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                    Read more
-                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </Link>
+        <div className='flex flex-col justify-cennter'>
+          <div className="flex justify-center items-center">
+          <div className=" flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
+            {/* <div className="flex h-56 m-2.5 overflow-hidden text-white rounded-md">
+              <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="card-image" />
+            </div> */}
+            <div className="p-4 ">
+              <h6 className="mb-4 text-slate-800 text-2xl font-semibold">
+                {randomvariable.title}
+              </h6>
+              <p className="text-slate-700 text-justify leading-normal font-light text-lg ">
+              {randomvariable.content.slice(0,200)}
+              </p>
             </div>
+            <div className="px-4 pb-4 pt-0 mt-2">
+              <button className="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                Read more
+              </button>
+            </div>
+          </div>  
 
+          </div>
+        </div>
+          
+          
 
         </>
     )
