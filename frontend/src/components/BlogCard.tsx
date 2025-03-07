@@ -19,13 +19,11 @@ export const BlogCard = ()=>{
         }
     return (
 
-        <>
-  
-    
-            
+        <>   
             {
        blogs.map((e:Cardelement)=>{
         return (<>
+        
         <Blogcrd 
           id={e.id}
           authorId={e.authorId}
@@ -33,15 +31,11 @@ export const BlogCard = ()=>{
           title={e.title}
           content={e.content}
         />
+
+        
+    
         </>)
        })
-    // <Blogcrd 
-    //       id={1}
-    //       authorId={2}
-    //       authorname={ "Anonymous"}
-    //       title={"dkjhsdjhskdhsdkjhskdshkdjshkdjhskdhkjsdhshdkjshdkhskdhdkjshdkjshdkshdkj"}
-    //       content={"dkjshdjhsdjsgdshjdgsjhdgshjdghjsgdjhsgdjhsgdhjsgdjhgsdhjgsjhdgsjhdgsjhdgsjdgjsdgsjhdgjshdgjshgdhjsgdjhsghd"}
-    //     />
   }
        
 
