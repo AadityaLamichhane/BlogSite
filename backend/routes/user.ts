@@ -1,10 +1,8 @@
 import { Hono } from 'hono'
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
-import { decode, sign, verify } from 'hono/jwt'
-import { z } from 'zod'
+import {  sign  } from 'hono/jwt'
 import {signupInput , signinInput} from 'aaditya-npm-packeges-testing'
-import { except } from 'hono/combine'
 import { cors } from 'hono/cors'
 
 const userRouter = new Hono<{
@@ -63,6 +61,7 @@ userRouter.post('/signup', async (c) => {
         name: body.name
       }
     });
+    console.log("User is Created by the way ");
     const jwtValue = await sign({
       id: user.id
     }, c.env.JWT_KEY);
