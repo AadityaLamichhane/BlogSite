@@ -71,15 +71,6 @@ graph TD
     G --> H[MongoDB Cluster]
     H --> I[Blog Posts Collection]
     H --> J[User Metadata Collection]
-
-    style A fill:#f9f,stroke:#333
-    style B fill:#bbf,stroke:#333
-    style C fill:#bfb,stroke:#333
-    style H fill:#ffb3,stroke:#333
-
-    classDef client fill:#f9f,stroke:#333;
-    classDef server fill:#bbf,stroke:#333;
-    classDef database fill:#ffb3,stroke:#333;
 ```
 
 ---
@@ -111,3 +102,6 @@ graph TD
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
 ---
+
+Readme designing Credit :https://gitmcp.io
+The diagram  was created with the help of gitmcp really cool website do check this website ()
