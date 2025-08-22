@@ -13,7 +13,6 @@ export const InputButton  = ({label , placeholder , onChange}:InputButtonTypes)=
                 <label className="block mb-2 text-md font-lg font-bold text-gray-900 text-left ml-1"> {label}</label>
                 {label=='Password'?<>
                     <input type="password" id="first_name" onChange={onChange} className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:focus:border-blue-500" placeholder={placeholder} required />
-
                 </>:<>
                     <input type="text" id="first_name" onChange={onChange} className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:focus:border-blue-500" placeholder={placeholder} required />
                     </>}

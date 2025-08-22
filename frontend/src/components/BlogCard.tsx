@@ -23,7 +23,8 @@ export const BlogCard = ()=>{
             {
        blogs.map((e:Cardelement)=>{
         return (<>
-        
+       <div className='my-6'>
+
         <Blogcrd 
           id={e.id}
           authorId={e.authorId}
@@ -31,6 +32,7 @@ export const BlogCard = ()=>{
           title={e.title}
           content={e.content}
         />
+        </div> 
 
         
     

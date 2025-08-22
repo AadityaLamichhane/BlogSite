@@ -22,7 +22,7 @@ export const FormCard = ({ type }: { type: "Signup" | "Signin" }) => {
         return (<>
         Error was detected /Todo For error Handling 
         
-        <div className=' h-screen flex justify-center'>
+        <div className=' h-screen flex justify-center w-screen'>
             <div className = " h-screen flex flex-col justify-center">
                 <div className="rounded-full bg-green-500 p-4 m-2 font-bold text-white">
                      <Link to='/signin' onClick={() => window.location.reload()}>Sign In</Link>
@@ -112,7 +112,7 @@ export const FormCard = ({ type }: { type: "Signup" | "Signin" }) => {
                         });
                     }} />
                     <div className='flex-1'>
-                        <button type="button" onClick={clickhandler} className="flex-1 mt-3 text-white font-bold bg-black-700 hover: focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 bg-gray-600 hover:bg-gray-700 focus:ring-gray-900">{type === 'Signup' ? "Sign Up" : "Sign In"}</button>
+                        <button type="button" onClick={clickhandler} className="flex-1 mt-3 text-white font-bold bg-black-700 hover: focus:outline-none focus:ring-4 focus:ring-gray-300 font-bold rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 bg-gray-600 hover:bg-gray-700 focus:ring-gray-900">{type === 'Signup' ? "Sign Up" : "Sign In"}</button>
                     </div>
                     <div>
                         {type === 'Signin' ? "Create An Account" : "Already have an account"}
